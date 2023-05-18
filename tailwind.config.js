@@ -31,3 +31,15 @@ export default {
     ],
   },
 };
+
+{
+  /* 
+color continuation --
+
+white -- F9F7F7
+light blue - DBE2EF
+blue - 3F72AF
+blue dark - 112D4E
+
+            */
+}
