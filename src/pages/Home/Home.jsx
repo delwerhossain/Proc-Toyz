@@ -10,7 +10,7 @@ const Home = () => {
 white -- F9F7F7
 light blue - DBE2EF
 blue - 3F72AF
-dark - 112D4E
+blue dark - 112D4E
 
             */}
     </div>

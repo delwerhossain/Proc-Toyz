@@ -64,9 +64,10 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="normal-case text-xl">
-          <p className="font-extrabold lg:text-3xl text-2xl text-primary underline">
-            Proc<span className="text-black">Toyz</span>
+          <p className="font-extrabold lg:text-3xl text-2xl text-[#112D4E] underline">
+            Proc<span className="text-primary">Toyz</span>
           </p>
+
           {/* <img
             loading="lazy"
             className="w-16 md:w-20 lg:w-28"
