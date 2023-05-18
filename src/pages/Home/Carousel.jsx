@@ -1,8 +1,8 @@
 const Carousel = () => {
     const bannerText = (
       <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#09090a] to-[rgba(21, 21, 21, 0)]">
-        <div className="text-white  space-y-7 pl-24 w-2/3">
-          <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold">
+        <div className="text-white  space-y-7 pl-24 md:w-2/3 w-10/12">
+          <h2 className="lg:text-6xl md:text-5xl text-2xl font-bold">
             Designer toys expert since 2003
           </h2>
           <p>
@@ -10,10 +10,12 @@ const Carousel = () => {
             collections of figurines and designer toys are available on our
             site.
           </p>
-          <div>
-            <button className="btn btn-primary mr-5">Discover More</button>
+          <div className="hidden md:block">
+            <button className="btn  btn-primary mr-5 mb-2">
+              All Toys Zone
+            </button>
             <button className="btn btn-outline border-white text-white font-bold">
-              Latest Project
+              My Toys Zone
             </button>
           </div>
         </div>
@@ -21,7 +23,7 @@ const Carousel = () => {
     );
   return (
     <div className="">
-      <div className="carousel lg:h-[800px] md:h-[650px]  w-full h-[250px] sm:h-[450px]">
+      <div className="carousel lg:h-[800px] md:h-[650px]  w-full h-[350px] sm:h-[450px]">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="https://artoyz.com/cdn/shop/files/bandeau-desk-MIST_2000x.jpg?v=1683186391"
