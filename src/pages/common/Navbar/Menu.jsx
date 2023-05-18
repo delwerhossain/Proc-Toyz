@@ -36,7 +36,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="transform fixed z-20 navbar bg-base-100">
+    <div className="bg-gray-100/60  navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,7 +64,9 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="normal-case text-xl">
-          <p>logo</p>
+          <p className="font-extrabold lg:text-3xl text-2xl text-primary underline">
+            Proc<span className="text-black">Toyz</span>
+          </p>
           {/* <img
             loading="lazy"
             className="w-16 md:w-20 lg:w-28"
