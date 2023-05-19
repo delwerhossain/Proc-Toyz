@@ -1,8 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const Category = () => {
-    const cateID = useParams().category;
+    const cateID = useLoaderData()
     console.log(cateID);
     return (
         <div>
