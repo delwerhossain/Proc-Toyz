@@ -3,6 +3,7 @@ import Layouts from "../Layout/Layouts";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Category from "../pages/Category/Category";
+import HomeCategory from "../pages/Home/HomeCategory";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/categoryall/:all",
+        element: <HomeCategory />,
       },
       {
         path: "/all",

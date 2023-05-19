@@ -5,7 +5,7 @@ import Navbar from '../pages/common/Navbar/Menu';
 let menuList = [
   { title: "Home", link: "/", id: 1 },
   { title: "All Toys", link: "/all", id: 2 },
-  // { title: "About", link: "/about", id: 3 },
+  { title: "Category", link: "/categoryall/all", id: 3 },
   // { title: "Courses", link: "/courses", id: 4 },
   // { title: "Blogs", link: "/blogs", id: 5 }
 ];

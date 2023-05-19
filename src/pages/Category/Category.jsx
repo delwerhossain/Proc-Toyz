@@ -4,8 +4,6 @@ import CateCard from "./CateCard";
 
 const Category = () => {
   const cateID = useLoaderData();
-
-console.log(cateID);
   return (
     <div>
       {!(cateID.length > 15) && (
