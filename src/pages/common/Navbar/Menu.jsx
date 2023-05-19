@@ -65,36 +65,21 @@ const Navbar = () => {
             {menuPart}
           </ul>
         </div>
-        <Link className="normal-case text-xl">
-          <p className="font-extrabold lg:text-3xl text-2xl text-[#112D4E] underline">
+        <Link className="normal-case text-xl flex items-center justify-center">
+          <img
+            loading="lazy"
+            className="md:w-32 w-20 mr-2 rounded-xl"
+            src="https://i.ibb.co/bmXC6FR/ProcToyz.png"
+            alt=""
+          />
+          <p className="hidden md:block font-extrabold lg:text-3xl text-xl text-[#112D4E] underline">
             Proc<span className="text-primary">Toyz</span>
           </p>
-
-          {/* <img
-            loading="lazy"
-            className="w-16 md:w-20 lg:w-28"
-            src={logo}
-            alt=""
-          /> */}
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {/* {menuList.map((menu) => (
-            <li key={menu.id}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "active mr-3 btn  border-0"
-                    : "mr-3 btn text-black border-0 bg-white  hover:text-white"
-                }
-                to={menu.link}
-              >
-                {menu.title}
-              </NavLink>
-            </li>
-          ))} */}
-          {/* main menu */}
+        
           {menuPart}
         </ul>
       </div>
