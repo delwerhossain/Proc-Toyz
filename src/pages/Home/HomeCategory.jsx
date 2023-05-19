@@ -1,6 +1,7 @@
 import { data } from "autoprefixer";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const HomeCategory = () => {
   const [cateData, setCateData] = useState([]);
@@ -31,10 +32,10 @@ const HomeCategory = () => {
               <Card key={card._id} card={card}></Card>
             ))}
 
-            <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
+            <Link to={`category/1`} className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
               {" "}
               See all{" "}
-            </button>
+            </Link>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -44,10 +45,10 @@ const HomeCategory = () => {
               <Card key={card._id} card={card}></Card>
             ))}
 
-            <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
+            <Link to={`category/2`} className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
               {" "}
               See all{" "}
-            </button>
+            </Link>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -57,10 +58,10 @@ const HomeCategory = () => {
               <Card key={card._id} card={card}></Card>
             ))}
 
-            <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
+            <Link to={`category/3`} className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
               {" "}
               See all{" "}
-            </button>
+            </Link>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -70,10 +71,10 @@ const HomeCategory = () => {
               <Card key={card._id} card={card}></Card>
             ))}
 
-            <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
+            <Link to={`category/4`} className="btn bg-yellow-950 text-slate-50 font-bold text-2xl">
               {" "}
               See all{" "}
-            </button>
+            </Link>
           </div>
         </div>
       </div>
