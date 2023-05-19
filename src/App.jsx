@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <div className="App">
-       <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </div>
-  )
-}
+    <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+      <TabList>
+        <Tab  >Title 1</Tab>
+        <Tab>Title 2</Tab>
+      </TabList>
+      <TabPanel></TabPanel>
+      <TabPanel></TabPanel>
+    </Tabs>
+  );
+};
 
-export default App

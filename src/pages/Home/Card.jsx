@@ -3,8 +3,8 @@ import React from 'react';
 const Card = ({ card }) => {
     const { name, price, pictureURL, description } = card;
     return (
-      <div className="">
-        <div className="card w-[400px] h-[350px] bg-base-100 shadow-xl image-full">
+      <div className=" my-4">
+        <div className="card md:w-[400px] w-[340px] mx-auto  md:h-[350px] bg-base-100 shadow-xl image-full">
           <figure>
             <img className="" src={pictureURL} alt={name} />
           </figure>
@@ -15,11 +15,11 @@ const Card = ({ card }) => {
             <p className="mt-14 text-[#bdbab5]">
               {description.slice(0, 45)}...
             </p>
-            <p className="absolute bottom-10 text-2xl py-1  w-1/3 inline-block text-slate-50 rounded-3xl bg-[#9e6a03]">
+            <p className="absolute bottom-10 text-2xl text-center py-1  w-1/3 inline-block text-slate-50 rounded-3xl bg-[#9e6a03]">
               {price}$
             </p>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">See More</button>
+              <button className="btn btn-primary">Details</button>
             </div>
           </div>
         </div>
