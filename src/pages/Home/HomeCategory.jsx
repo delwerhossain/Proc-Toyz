@@ -12,10 +12,10 @@ const HomeCategory = () => {
   }, []);
   // all sub categories
   const herosCategory = cateData.filter((data) => data.subCategory == "Heroes");
+  const artCategory = cateData.filter((data) => data.subCategory == "Art toys");
   const essentialsCategory = cateData.filter(
     (data) => data.subCategory == "Essentials"
   );
-  const artCategory = cateData.filter((data) => data.subCategory == "Art toys");
   const artBookCategory = cateData.filter(
     (data) => data.subCategory == "Art & Books"
   );
