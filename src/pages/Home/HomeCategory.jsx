@@ -20,7 +20,7 @@ const HomeCategory = () => {
   );
   return (
     <div className="my-16">
-      <h1 className="md:text-6xl text-4xl text-primary text-center my-8 font-bold ">
+      <h1 className="md:text-6xl text-4xl text-primary text-center my-8 font-bold underline">
         Our Category
       </h1>
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center justify-items-center ">
