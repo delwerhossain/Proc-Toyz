@@ -30,6 +30,8 @@ const HomeCategory = () => {
             {herosCategory.slice(0, 2).map((card) => (
               <Card key={card._id} card={card}></Card>
             ))}
+            
+                      <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl"> See all </button>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -38,6 +40,8 @@ const HomeCategory = () => {
             {artCategory.slice(0, 2).map((card) => (
               <Card key={card._id} card={card}></Card>
             ))}
+            
+                      <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl"> See all </button>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -46,6 +50,8 @@ const HomeCategory = () => {
             {essentialsCategory.slice(0, 2).map((card) => (
               <Card key={card._id} card={card}></Card>
             ))}
+            
+                      <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl"> See all </button>
           </div>
         </div>
         <div className="border p-4 rounded-xl mb-6 bg-[#FFF8EA] text-center text-3xl ">
@@ -54,6 +60,8 @@ const HomeCategory = () => {
             {artBookCategory.slice(0, 2).map((card) => (
               <Card key={card._id} card={card}></Card>
             ))}
+            
+                      <button className="btn bg-yellow-950 text-slate-50 font-bold text-2xl"> See all </button>
           </div>
         </div>
       </div>

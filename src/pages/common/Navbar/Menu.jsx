@@ -25,7 +25,9 @@ const Navbar = () => {
         <li key={menu.id}>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "active mr-5 mb-2" : "mr-5 mb-2"
+              isActive
+                ? "active mr-5 mb-2 font-bold text-white"
+                : "mr-5 mb-2 font-bold text-yellow-950"
             }
             to={menu.link}
           >
@@ -97,7 +99,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
+        <button className="btn text-yellow-950 btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -113,7 +115,7 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <button className="btn btn-ghost btn-circle">
+        <button className="btn  text-yellow-950 btn-ghost btn-circle">
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -134,24 +136,33 @@ const Navbar = () => {
         </button>
         {user && (
           <>
-            <img
-              loading="lazy"
-              className="w-12 mr-1 rounded-full"
-              src={user?.photoURL}
-              alt={user?.displayName}
-              title={user?.displayName}
-            />
-            <div onClick={handleSignOut} className="btn btn-primary p-2">
-              <FiLogOut title="logOut"></FiLogOut>
+            <div
+              className="tooltip tooltip-bottom "
+              data-tip={user?.displayName}
+            >
+              <img
+                loading="lazy"
+                className="w-12 mr-1 rounded-full"
+                src={user?.photoURL}
+                alt={user?.displayName}
+                title={user?.displayName}
+              />
+            </div>
+            <div className="tooltip tooltip-bottom " data-tip="log in">
+              <div onClick={handleSignOut} className="btn   btn-primary p-2">
+                <FiLogOut title="logOut"></FiLogOut>
+              </div>
             </div>
           </>
         )}
 
-        {!user && (
-          <Link className="btn btn-primary p-2" to={"/login"}>
-            <FiLogIn title="logOut"></FiLogIn>
-          </Link>
-        )}
+        <div className="tooltip tooltip-bottom " data-tip="log Out">
+          {!user && (
+            <Link className="btn btn-primary p-2" to={"/login"}>
+              <FiLogIn title="logOut"></FiLogIn>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
