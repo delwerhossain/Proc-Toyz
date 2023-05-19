@@ -7,7 +7,7 @@ let menuList = [
   { title: "All Toys", link: "/all", id: 2 },
   { title: "Category", link: "/categoryall/all", id: 3 },
   // { title: "Courses", link: "/courses", id: 4 },
-  // { title: "Blogs", link: "/blogs", id: 5 }
+  { title: "Blogs", link: "/blogs", id: 5 }
 ];
 export const NavContext = createContext({
   menuList: []
