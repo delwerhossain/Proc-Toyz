@@ -1,6 +1,8 @@
 import Rating from "react-rating";
+import "./singleToy.scss";
 
 const SingleToys = ({ product }) => {
+    
   const {
     name,
     pictureURL,

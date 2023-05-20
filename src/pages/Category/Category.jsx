@@ -1,6 +1,4 @@
-import React from "react";
 import { useLoaderData } from "react-router-dom";
-import CateCard from "./CateCard";
 import SingleToys from "../SingleToys/SingleToys";
 
 const Category = () => {

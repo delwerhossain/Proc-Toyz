@@ -28,6 +28,10 @@ export const router = createBrowserRouter([
         element: <SingleToys />,
       },
       {
+        path: "/toy/:id",
+        element: <SingleToys />,
+      },
+      {
         path: "/categoryall/:all",
         element: <HomeCategory />,
       },
