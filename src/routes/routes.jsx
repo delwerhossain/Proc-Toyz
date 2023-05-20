@@ -8,6 +8,7 @@ import Login from "../pages/AuthenticationPage/Login";
 import Register from "../pages/AuthenticationPage/Register";
 import Blogs from "../pages/Blogs/Blogs";
 import SingleToys from "../pages/SingleToys/SingleToys";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blogs",
-        element: <Blogs />,
+        element: (
+          <PrivateRoute>
+            <Blogs />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/toy",
