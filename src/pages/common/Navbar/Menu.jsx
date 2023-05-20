@@ -2,22 +2,23 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { NavContext } from '../../../Layout/Layouts';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navbar = () => {
   const { menuList } = useContext(NavContext);
-  // const { user, signOutLog } = useContext(AuthContext);
-  const user = false
+  const { user, signOutLog } = useContext(AuthContext);
+
 
   const handleSignOut = () => {
     console.log('logged out');
-    // return signOutLog()
-    //   .then(() => {
-    //     // Sign-out successful.
-    //     localStorage.removeItem("jwt");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    return signOutLog()
+      .then(() => {
+        // Sign-out successful.
+        localStorage.removeItem("jwt");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   const menuPart = (
     <>
@@ -133,7 +134,7 @@ const Navbar = () => {
                 title={user?.displayName}
               />
             </div>
-            <div className="tooltip tooltip-bottom " data-tip="log in">
+            <div className="tooltip tooltip-bottom " data-tip="log Out">
               <div onClick={handleSignOut} className="btn   btn-primary p-2">
                 <FiLogOut title="logOut"></FiLogOut>
               </div>
@@ -141,7 +142,7 @@ const Navbar = () => {
           </>
         )}
 
-        <div className="tooltip tooltip-bottom " data-tip="log Out">
+        <div className="tooltip tooltip-bottom " data-tip="log In">
           {!user && (
             <Link className="btn btn-primary p-2" to={"/login"}>
               <FiLogIn title="logOut"></FiLogIn>
