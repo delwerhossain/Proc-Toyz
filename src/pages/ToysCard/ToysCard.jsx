@@ -2,9 +2,11 @@ import Rating from "react-rating";
 import "./singleToy.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const ToysCard = ({ product }) => {
   const {
+    _id,
     name,
     pictureURL,
     sellerName,
@@ -57,10 +59,17 @@ const ToysCard = ({ product }) => {
           <Rating initialRating={rating} readonly />
           <span className="ml-2">34 people</span>
         </div>
-        {user && (
+        {user.email === sellerEmail && (
           <div className="p-4 flex  items-center justify-end">
-            <button className="btn btn-primary mr-4">Edit </button>
-            <button className="btn btn-primary">Delete</button>
+            <Link to={`/toy/${_id}`} className="btn btn-primary mr-4">
+              details{" "}
+            </Link>
+            <Link to={`/edit/${_id}`} className="btn btn-secondary mr-4">
+              Edit{" "}
+            </Link>
+            <Link to={`/toy/${_id}`} className="btn btn-error">
+              Delete
+            </Link>{" "}
           </div>
         )}
       </div>
