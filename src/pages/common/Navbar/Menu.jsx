@@ -80,8 +80,21 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-        
           {menuPart}
+          {user && (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "active mr-5 mb-2 font-bold text-white"
+                    : "mr-5 mb-2 font-bold text-yellow-950"
+                }
+                to="/mytoys"
+              >
+                My Toys
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
