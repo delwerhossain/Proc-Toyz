@@ -22,7 +22,7 @@ const Navbar = () => {
   };
   const menuPart = (
     <>
-      {menuList.map((menu) => (
+      {menuList && menuList.map((menu) => (
         <li key={menu.id}>
           <NavLink
             className={({ isActive }) =>
