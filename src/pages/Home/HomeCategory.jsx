@@ -1,5 +1,4 @@
-import { data } from "autoprefixer";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Card from "./Card";
 import { Link, useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";

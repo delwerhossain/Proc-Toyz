@@ -1,5 +1,5 @@
-import React, { createContext } from 'react';
-import { Link, NavLink, Outlet } from "react-router-dom";
+import  { createContext } from 'react';
+import {   Outlet } from "react-router-dom";
 import Navbar from '../pages/common/Navbar/Menu';
 import Footer from '../pages/common/Navbar/Footer';
 
