@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import CateCard from "./CateCard";
+import SingleToys from "../SingleToys/SingleToys";
 
 const Category = () => {
   const cateID = useLoaderData();
@@ -8,20 +9,20 @@ const Category = () => {
     <div>
       {!(cateID.length > 15) && (
         <h1 className="md:text-6xl text-4xl text-primary text-center my-8 font-bold underline">
-          Category - {cateID.slice(0,1).map((product) => product.subCategory)}
+          Category - {cateID.slice(0, 1).map((product) => product.subCategory)}
         </h1>
       )}
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
 
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3  xl:gap-x-8">
-            {cateID.map((product) => (
-              <CateCard key={product._id} product={product}></CateCard>
-            ))}
-          </div>
-        </div>
-      </div>
+          <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6">
+            <div className="container mx-auto">
+              <div className="flex flex-wrap -mx-4">
+                {cateID.map((product) => (
+                  <SingleToys key={product._id} product={product}></SingleToys>
+                ))}
+              </div>
+            </div>
+          </body>
     </div>
   );
 };

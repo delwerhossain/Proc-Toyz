@@ -7,6 +7,7 @@ import HomeCategory from "../pages/Home/HomeCategory";
 import Login from "../pages/AuthenticationPage/Login";
 import Register from "../pages/AuthenticationPage/Register";
 import Blogs from "../pages/Blogs/Blogs";
+import SingleToys from "../pages/SingleToys/SingleToys";
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +20,12 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "blogs",
+        path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/toy",
+        element: <SingleToys />,
       },
       {
         path: "/categoryall/:all",
@@ -40,11 +45,11 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "register",
+    path: "/register",
     element: <Register />,
   },
 ]);
