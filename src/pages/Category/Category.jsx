@@ -1,17 +1,31 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import ToysCard from "../ToysCard/ToysCard";
 import { useEffect, useState } from "react";
 import Loading from "../../Components/Loading/Loading";
 
 const Category = () => {
-  const cateID = useLoaderData();
+  // const cateID = useLoaderData();
+  const [cateID, setCateID] = useState([]);
+  const idParams = useParams();
+  useEffect(() => {
+if (idParams.id) {
+  fetch(`https://server-toy-marketplace.vercel.app/category/${idParams.id}`)
+    .then((response) => response.json())
+    .then((data) => setCateID(data));
+} else {
+   fetch("https://server-toy-marketplace.vercel.app/toys")
+     .then((response) => response.json())
+     .then((data) => setCateID(data));
+}
+     
+  }, []);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 200);
+      }, 400);
     }
   }, []);
 

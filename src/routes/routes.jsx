@@ -51,15 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "/all",
         element: <Category />,
-        loader: () => fetch(`https://server-toy-marketplace.vercel.app/toys`),
       },
       {
         path: "/category/:id",
         element: <Category />,
-        loader: ({ params }) =>
-          fetch(
-            `https://server-toy-marketplace.vercel.app/category/${params.id}`
-          ),
       },
     ],
   },
