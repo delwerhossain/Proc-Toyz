@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/toy",
+        path: "/mytoys",
         element: <SingleToys />,
       },
       {
