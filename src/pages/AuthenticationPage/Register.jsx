@@ -172,10 +172,13 @@ const Register = () => {
             <p className="text-2xl text-red-600">{error}</p>
             <p className="text-2xl text-teal-600">{success}</p>
             <p className="my-4 text-center">
-              Already Have an Account?{" "}
+              <span className="font-semibold ">Already Have an Account?</span>{" "}
               <Link className="text-orange-600 font-bold" to="/login">
                 Login
               </Link>{" "}
+            </p>
+            <p className="font-semibold underline text-secondary text-center">
+              <Link to={"/"}> Home page</Link>
             </p>
           </div>
         </div>

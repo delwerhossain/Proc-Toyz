@@ -153,11 +153,14 @@ const Login = () => {
             </form>
             <p className="text-2xl text-red-600">{error}</p>
             <p className="text-2xl text-teal-600">{success}</p>
-            <p className="my-4 text-center">
-              New to Car Doctors{" "}
+            <p className="my-4 font-semibold text-center">
+              You are New - 
               <Link className="text-orange-600 font-bold" to="/register">
                 Sign Up
-              </Link>{" "}
+              </Link>
+            </p>
+            <p className="font-semibold underline text-secondary text-center">
+              <Link to={"/"}> Home page</Link>
             </p>
           </div>
         </div>
