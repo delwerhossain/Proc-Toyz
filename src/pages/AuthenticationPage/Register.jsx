@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../../Components/Loading/Loading";
 
 const Register = () => {
   const { createUser, signInWithGoogle, signInWithGit } =
@@ -69,7 +70,21 @@ const Register = () => {
       });
   };
 
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 200);
+    }
+  }, []);
+
+  return loading ? (
+    <div className="grid justify-center items-center">
+      <Loading></Loading>
+    </div>
+  ) : (
     <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col lg:flex-row">
         <div className="w-1/2 mr-12">

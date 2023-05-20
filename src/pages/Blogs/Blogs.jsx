@@ -8,7 +8,7 @@ const Blogs = () => {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 300);
+      }, 200);
     }
   }, []);
 

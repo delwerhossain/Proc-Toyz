@@ -19,13 +19,13 @@
   }
   ```
 */
-import { useState } from "react";
-import { StarIcon } from "@heroicons/react/20/solid";
+import { useEffect, useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { Link, useLoaderData } from "react-router-dom";
 import Rating from "react-rating";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../../Components/Loading/Loading";
 
 const product = {
   // data fetch
@@ -91,8 +91,8 @@ const SingleToy = () => {
   //
   const { user } = useContext(AuthContext);
   const toy = useLoaderData();
-    const {
-      _id,
+  const {
+    _id,
     name,
     pictureURL,
     sellerName,
@@ -107,7 +107,21 @@ const SingleToy = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 200);
+    }
+  }, []);
+
+  return loading ? (
+    <div className="grid justify-center items-center">
+      <Loading></Loading>
+    </div>
+  ) : (
     <div className="bg-white">
       <div className="pt-6">
         {/* Image gallery */}

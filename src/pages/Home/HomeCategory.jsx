@@ -3,6 +3,7 @@ import Card from "./Card";
 import { Link, useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Loading from "../../Components/Loading/Loading";
 
 const HomeCategory = () => {
   // state
@@ -24,7 +25,23 @@ const HomeCategory = () => {
   const artBookCategory = cateData.filter(
     (data) => data.subCategory == "Art & Books"
   );
-  return (
+
+  // loader spinier
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 200);
+    }
+  }, []);
+
+  return loading ? (
+    <div className="grid justify-center items-center">
+      <Loading></Loading>
+    </div>
+  ) : (
     <div className="my-16 lg:w-11/12 mx-auto">
       <h1 className="md:text-6xl text-4xl text-yellow-900 text-center my-8 font-bold underline">
         Our Category

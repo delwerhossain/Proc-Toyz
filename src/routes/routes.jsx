@@ -7,7 +7,6 @@ import HomeCategory from "../pages/Home/HomeCategory";
 import Login from "../pages/AuthenticationPage/Login";
 import Register from "../pages/AuthenticationPage/Register";
 import Blogs from "../pages/Blogs/Blogs";
-import ToysCard from "../pages/ToysCard/ToysCard";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../pages/MyToys/MyToys";
 import SingleToy from "../pages/SingleToy/SingleToy";

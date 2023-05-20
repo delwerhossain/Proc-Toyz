@@ -1,9 +1,25 @@
 import { useLoaderData } from "react-router-dom";
 import ToysCard from "../ToysCard/ToysCard";
+import { useEffect, useState } from "react";
+import Loading from "../../Components/Loading/Loading";
 
 const Category = () => {
   const cateID = useLoaderData();
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 200);
+    }
+  }, []);
+
+  return loading ? (
+    <div className="grid justify-center items-center">
+      <Loading></Loading>
+    </div>
+  ) : (
     <div>
       {!(cateID.length > 15) && (
         <h1 className="md:text-6xl text-4xl text-primary text-center my-8 font-bold underline">
