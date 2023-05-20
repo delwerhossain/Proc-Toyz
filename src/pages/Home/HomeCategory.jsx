@@ -9,7 +9,6 @@ const HomeCategory = () => {
   const [cateData, setCateData] = useState([]);
   // params
   let { all } = useParams();
-  console.log(all);
   // api fetch request
   useEffect(() => {
     fetch("http://localhost:5000/toys")
