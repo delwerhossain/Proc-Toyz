@@ -1,8 +1,9 @@
 import Rating from "react-rating";
 import "./singleToy.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SingleToys = ({ product }) => {
-    
   const {
     name,
     pictureURL,
@@ -15,7 +16,7 @@ const SingleToys = ({ product }) => {
     availableQuantity,
     description,
   } = product;
-
+const {user} = useContext(AuthContext)
   return (
     <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
       <div className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
@@ -54,13 +55,15 @@ const SingleToys = ({ product }) => {
           </span>
         </div>
         <div className="p-4 flex items-center text-sm text-gray-600">
- <Rating initialRating={rating} readonly />
+          <Rating initialRating={rating} readonly />
           <span className="ml-2">34 people</span>
         </div>
-              <div className="p-4 flex  items-center justify-end">
-                  <button className="btn btn-primary mr-4">Edit </button>
-                  <button className="btn btn-primary">Delete</button>
-        </div>
+        {user && (
+          <div className="p-4 flex  items-center justify-end">
+            <button className="btn btn-primary mr-4">Edit </button>
+            <button className="btn btn-primary">Delete</button>
+          </div>
+        )}
       </div>
     </div>
   );

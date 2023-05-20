@@ -17,7 +17,7 @@ const Card = ({ card }) => {
             {price}$
           </p>
           <div className="card-actions justify-end">
-            <Link to={`toy/${_id}`} className="btn btn-primary">
+            <Link to={`/toy/${_id}`} className="btn btn-primary">
               Details
             </Link>
           </div>

@@ -63,28 +63,7 @@ const HomeCategory = () => {
               )
             )}
           </div>
-          <div
-            className="grid w-9/12 mx-auto h-16
-           my-8"
-          >
-            {" "}
-            <Link
-              to={`category/1`}
-              className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
-            >
-              {" "}
-              See all{" "}
-            </Link>
-          </div>
-        </TabPanel>
-        <TabPanel>
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  md:gap-8 gap-8 mx-2">
-            {(all == "all" ? artCategory : artCategory.slice(0, 4)).map(
-              (card) => (
-                <Card key={card._id} card={card}></Card>
-              )
-            )}
-
+          {all == "all" || (
             <div
               className="grid w-9/12 mx-auto h-16
            my-8"
@@ -98,6 +77,31 @@ const HomeCategory = () => {
                 See all{" "}
               </Link>
             </div>
+          )}
+        </TabPanel>
+        <TabPanel>
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1  md:gap-8 gap-8 mx-2">
+            {(all == "all" ? artCategory : artCategory.slice(0, 4)).map(
+              (card) => (
+                <Card key={card._id} card={card}></Card>
+              )
+            )}
+
+            {all == "all" || (
+              <div
+                className="grid w-9/12 mx-auto h-16
+           my-8"
+              >
+                {" "}
+                <Link
+                  to={`category/2`}
+                  className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
+                >
+                  {" "}
+                  See all{" "}
+                </Link>
+              </div>
+            )}
           </div>
         </TabPanel>
         <TabPanel>
@@ -109,19 +113,21 @@ const HomeCategory = () => {
               <Card key={card._id} card={card}></Card>
             ))}
 
-            <div
-              className="grid w-9/12 mx-auto h-16
+            {all == "all" || (
+              <div
+                className="grid w-9/12 mx-auto h-16
            my-8"
-            >
-              {" "}
-              <Link
-                to={`category/1`}
-                className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
               >
                 {" "}
-                See all{" "}
-              </Link>
-            </div>
+                <Link
+                  to={`category/3`}
+                  className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
+                >
+                  {" "}
+                  See all{" "}
+                </Link>
+              </div>
+            )}
           </div>
         </TabPanel>
         <TabPanel>
@@ -132,19 +138,21 @@ const HomeCategory = () => {
               )
             )}
 
-            <div
-              className="grid w-9/12 mx-auto h-16
+            {all == "all" || (
+              <div
+                className="grid w-9/12 mx-auto h-16
            my-8"
-            >
-              {" "}
-              <Link
-                to={`category/1`}
-                className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
               >
                 {" "}
-                See all{" "}
-              </Link>
-            </div>
+                <Link
+                  to={`category/4`}
+                  className="btn   bg-yellow-950 text-slate-50 font-bold text-2xl"
+                >
+                  {" "}
+                  See all{" "}
+                </Link>
+              </div>
+            )}
           </div>
         </TabPanel>
       </Tabs>
