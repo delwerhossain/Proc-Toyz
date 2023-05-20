@@ -11,7 +11,7 @@ const HomeCategory = () => {
   let { all } = useParams();
   // api fetch request
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://server-toy-marketplace.vercel.app/toys")
       .then((response) => response.json())
       .then((data) => setCateData(data));
   }, []);

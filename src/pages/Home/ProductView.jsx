@@ -4,7 +4,7 @@ const ProductView = () => {
   const [toys, setToys] = useState([]);
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/toys`)
+      fetch(`https://server-toy-marketplace.vercel.app/toys`)
         .then((res) => res.json())
         .then((data) => setToys(data.slice(18, 21)));
     } catch (error) {
