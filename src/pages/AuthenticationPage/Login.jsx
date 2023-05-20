@@ -20,7 +20,6 @@ const Login = () => {
     const password = form.password.value;
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
         setSuccess("login success");
         setError("");
         navigate(from, { replace: true });
@@ -43,7 +42,6 @@ const Login = () => {
       })
       .catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
         const errorMessage = error.message;
 
         setError(errorMessage);
@@ -53,7 +51,6 @@ const Login = () => {
   const handleGitPopup = () => {
     return signInWithGit()
       .then((result) => {
-        const user = result.user;
         setError("");
         setSuccess("login success - Google");
         navigate(from, { replace: true });
@@ -72,12 +69,12 @@ const Login = () => {
         <div className="w-1/2 mr-12">
           <img
             loading="lazy"
-            src="https://i.ibb.co/990SWPd/loginImg.jpg"
+            src="https://i.ibb.co/T1JLD7q/vecteezy-smartphone-app-layout.jpg"
             alt=""
           />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <div className="card-body text-primary">
             <h1 className="text-3xl text-center font-bold">Login</h1>
             <form onSubmit={handleLogin}>
               <div className="form-control">
