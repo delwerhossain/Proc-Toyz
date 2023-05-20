@@ -15,7 +15,7 @@ export default {
 
           primary: "#594545",
 
-          neutral: "#3D4451",
+          neutral: "#4E5259",
 
           light: "#FFF8EA",
 
