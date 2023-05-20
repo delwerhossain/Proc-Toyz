@@ -7,8 +7,9 @@ import HomeCategory from "../pages/Home/HomeCategory";
 import Login from "../pages/AuthenticationPage/Login";
 import Register from "../pages/AuthenticationPage/Register";
 import Blogs from "../pages/Blogs/Blogs";
-import SingleToys from "../pages/SingleToys/SingleToys";
+import ToysCard from "../pages/ToysCard/ToysCard";
 import PrivateRoute from "./PrivateRoute";
+import MyToys from "../pages/MyToys/MyToys";
 
 export const router = createBrowserRouter([
   {
@@ -30,11 +31,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/mytoys",
-        element: <SingleToys />,
+        element: (
+          <PrivateRoute>
+            <MyToys />
+          </PrivateRoute>
+        ),
+        loader: () => fetch(`http://localhost:5000/toys`),
       },
       {
         path: "/toy/:id",
-        element: <SingleToys />,
+        element: (
+          <PrivateRoute>
+            <ToysCard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/categoryall/:all",

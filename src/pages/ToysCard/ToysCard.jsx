@@ -3,20 +3,19 @@ import "./singleToy.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
-const SingleToys = ({ product }) => {
+const ToysCard = ({ product }) => {
   const {
     name,
     pictureURL,
     sellerName,
     sellerEmail,
     subCategory,
-    subID,
     price,
     rating,
     availableQuantity,
     description,
   } = product;
-const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   return (
     <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
       <div className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
@@ -69,4 +68,4 @@ const {user} = useContext(AuthContext)
   );
 };
 
-export default SingleToys;
+export default ToysCard;

@@ -1,23 +1,23 @@
 import { useLoaderData } from "react-router-dom";
 import ToysCard from "../ToysCard/ToysCard";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
-const Category = () => {
+const MyToys = () => {
+  const { user } = useContext(AuthContext);
   const cateID = useLoaderData();
+
+  const myToysFilter = cateID.filter((toys) => user.email === toys.sellerEmail);
   return (
     <div>
-      {!(cateID.length > 15) && (
-        <h1 className="md:text-6xl text-4xl text-primary text-center my-8 font-bold underline">
-          Category -{" "}
-          {cateID && cateID.slice(0, 1).map((product) => product.subCategory)}
-        </h1>
-      )}
-      <h2 className="sr-only">Products</h2>
-
       <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6">
+        <h2 className="text-4xl font-bold text-center my-6 text-primary ">
+          My Toyz
+        </h2>
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
             {cateID &&
-              cateID.map((product) => (
+              myToysFilter.map((product) => (
                 <ToysCard key={product._id} product={product}></ToysCard>
               ))}
           </div>
@@ -27,4 +27,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default MyToys;

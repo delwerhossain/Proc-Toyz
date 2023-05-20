@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductView = () => {
   const [toys, setToys] = useState([]);
@@ -6,13 +6,12 @@ const ProductView = () => {
     try {
       fetch(`http://localhost:5000/toys`)
         .then((res) => res.json())
-        .then((data) => setToys(data.slice(18,21)));
+        .then((data) => setToys(data.slice(18, 21)));
     } catch (error) {
       console.log(error);
     }
   }, []);
-    console.log(toys);
-  
+
   return (
     <div className="bg-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,7 +35,7 @@ const ProductView = () => {
                   </a>
                 </h3>
                 <p className="text-base font-semibold text-gray-900">
-                  {toys.description.slice(0,60)}
+                  {toys.description.slice(0, 60)}
                 </p>
               </div>
             ))}

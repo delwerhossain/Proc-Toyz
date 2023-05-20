@@ -25,7 +25,7 @@ const HomeCategory = () => {
     (data) => data.subCategory == "Art & Books"
   );
   return (
-    <div className="my-16">
+    <div className="my-16 lg:w-11/12 mx-auto">
       <h1 className="md:text-6xl text-4xl text-yellow-900 text-center my-8 font-bold underline">
         Our Category
       </h1>
@@ -39,7 +39,7 @@ const HomeCategory = () => {
       {/* tabs  */}
       <Tabs>
         <TabList>
-          <div className="grid grid-cols-4 text-center xl:text-4xl lg:text-3xl text-xl justify-center mb-6">
+          <div className="grid grid-cols-4 text-center lg:text-3xl text-xl justify-center mb-6">
             <Tab>
               <h1 className=" ">Heroes Toys</h1>
             </Tab>
