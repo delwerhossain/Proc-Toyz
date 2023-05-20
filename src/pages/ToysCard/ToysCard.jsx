@@ -59,7 +59,7 @@ const ToysCard = ({ product }) => {
           <Rating initialRating={rating} readonly />
           <span className="ml-2">34 people</span>
         </div>
-        {user.email === sellerEmail && (
+        {user && user.email === sellerEmail && (
           <div className="p-4 flex  items-center justify-end">
             <Link to={`/toy/${_id}`} className="btn btn-primary mr-4">
               details{" "}
