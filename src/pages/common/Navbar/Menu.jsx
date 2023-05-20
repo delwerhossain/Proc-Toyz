@@ -64,6 +64,20 @@ const Navbar = () => {
           >
             {/* main menu */}
             {menuPart}
+            {user && (
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active mr-5 mb-2 font-bold text-white"
+                      : "mr-5 mb-2 font-bold text-yellow-950"
+                  }
+                  to="/mytoys"
+                >
+                  My Toys
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <Link className="normal-case text-xl flex items-center justify-center">

@@ -17,7 +17,7 @@ export default {
 
           neutral: "#4E5259",
 
-          light: "#FFF8EA",
+          third: "#FFF8EA",
 
           info: "#3ABFF8",
 
