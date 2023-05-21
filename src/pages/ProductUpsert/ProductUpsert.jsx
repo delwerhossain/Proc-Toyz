@@ -55,7 +55,7 @@ const ProductUpsert = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "success",
-            text: "Coffee Added Successfully",
+            text: "toys Added Successfully",
             showDenyButton: true,
             showCancelButton: true,
             icon: "success",

@@ -3,6 +3,7 @@ import "./singleToy.scss";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ToysCard = ({ product }) => {
   const {
@@ -18,6 +19,22 @@ const ToysCard = ({ product }) => {
     description,
   } = product;
   const { user } = useContext(AuthContext);
+  const handleDelete = (id) => {
+    fetch(`https://server-toy-marketplace.vercel.app/toys/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+       Swal.fire({
+         title: "Delete",
+         text: "toys Delete Successfully",
+         showDenyButton: true,
+         showCancelButton: true,
+         icon: "delete",
+         confirmButtonText: "warning",
+       });
+      });
+  };
   return (
     <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
       <div className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
@@ -67,9 +84,9 @@ const ToysCard = ({ product }) => {
             <Link to={`/edit/${_id}`} className="btn btn-secondary mr-4">
               Edit{" "}
             </Link>
-            <Link to={`/toy/${_id}`} className="btn btn-error">
+            <button onClick={() => handleDelete(_id)} className="btn btn-error">
               Delete
-            </Link>{" "}
+            </button>{" "}
           </div>
         )}
       </div>
