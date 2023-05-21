@@ -10,6 +10,7 @@ import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../pages/MyToys/MyToys";
 import SingleToy from "../pages/SingleToy/SingleToy";
+import ProductUpsert from "../pages/ProductUpsert/ProductUpsert";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ export const router = createBrowserRouter([
       {
         path: "/category/:id",
         element: <Category />,
+      },
+      {
+        path: "/edit/:id",
+        element: <ProductUpsert />,
+      },
+      {
+        path: "/add",
+        element: <ProductUpsert />,
       },
     ],
   },

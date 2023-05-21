@@ -76,6 +76,16 @@ const Navbar = () => {
                 >
                   My Toys
                 </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "active mr-5 mb-2 font-bold text-white"
+                      : "mr-5 mb-2 font-bold text-yellow-950"
+                  }
+                  to="/add"
+                >
+                  Add Toy
+                </NavLink>
               </li>
             )}
           </ul>
@@ -106,6 +116,16 @@ const Navbar = () => {
                 to="/mytoys"
               >
                 My Toys
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "active mr-5 mb-2 font-bold text-white"
+                    : "mr-5 mb-2 font-bold text-yellow-950"
+                }
+                to="/add"
+              >
+                Add Toy
               </NavLink>
             </li>
           )}
