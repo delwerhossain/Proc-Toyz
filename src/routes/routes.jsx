@@ -12,6 +12,7 @@ import MyToys from "../pages/MyToys/MyToys";
 import SingleToy from "../pages/SingleToy/SingleToy";
 import ProductUpsert from "../pages/ProductUpsert/ProductUpsert";
 import ToyEdit from "../pages/ToyEdit/ToyEdit";
+import ToyTables from "../pages/ToyTables/ToyTables";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all",
-        element: <Category />,
+        element: <ToyTables />,
       },
       {
         path: "/category/:id",
