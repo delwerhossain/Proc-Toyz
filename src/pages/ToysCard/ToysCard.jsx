@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ToysCard = ({ product }) => {
+const ToysCard = ({ product, handleDeleteFilter }) => {
   const {
     _id,
     name,
@@ -21,18 +21,21 @@ const ToysCard = ({ product }) => {
   const { user } = useContext(AuthContext);
   const handleDelete = (id) => {
     fetch(`https://server-toy-marketplace.vercel.app/toys/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
-       Swal.fire({
-         title: "Delete",
-         text: "toys Delete Successfully",
-         showDenyButton: true,
-         showCancelButton: true,
-         icon: "delete",
-         confirmButtonText: "warning",
-       });
+        if (data) {
+          handleDeleteFilter(id);
+
+          Swal.fire({
+            title: "Delete",
+            text: "toys Delete Successfully",
+            showCancelButton: true,
+            icon: "delete",
+            confirmButtonText: "warning",
+          });
+        }
       });
   };
   return (

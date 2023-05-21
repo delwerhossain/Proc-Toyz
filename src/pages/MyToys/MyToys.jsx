@@ -8,8 +8,16 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const cateID = useLoaderData();
 
-  const myToysFilter = cateID.filter((toys) => user.email === toys.sellerEmail);
+  const FilterByMail = cateID.filter((toys) => user.email === toys.sellerEmail);
+  
+  const [myToysFilter, setMyToysFilter] = useState(FilterByMail); 
   const [loading, setLoading] = useState(true);
+  const handleDeleteFilter = (id) => {
+  
+          const deleteFilter = myToysFilter.filter(data=> data._id !== id);
+          setMyToysFilter(deleteFilter);
+        
+  } 
 
   useEffect(() => {
     if (loading) {
@@ -33,7 +41,7 @@ const MyToys = () => {
           <div className="flex flex-wrap -mx-4">
             {cateID &&
               myToysFilter.map((product) => (
-                <ToysCard key={product._id} product={product}></ToysCard>
+                <ToysCard key={product._id} product={product} handleDeleteFilter={handleDeleteFilter}></ToysCard>
               ))}
           </div>
         </div>
