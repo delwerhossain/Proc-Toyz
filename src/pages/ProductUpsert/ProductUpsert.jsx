@@ -42,7 +42,7 @@ const ProductUpsert = () => {
       description,
     };
     // sent data to backend
-    fetch(`https://server-toy-marketplace.vercel.app/toys`, {
+    fetch(`https://server-toy-marketplace.vercel.app/toysadd`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
