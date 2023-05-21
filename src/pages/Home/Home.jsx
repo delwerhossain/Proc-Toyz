@@ -5,10 +5,13 @@ import ProductView from "./ProductView";
 import HeaderSection from "./HeaderSection";
 import Loading from "../../Components/Loading/Loading";
 import Gallery from "./Gallery";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   useEffect(() => {
     if (loading) {
       setTimeout(() => {
@@ -23,11 +26,21 @@ const Home = () => {
     </div>
   ) : (
     <div>
-      <Carousel></Carousel>
-      <ProductView></ProductView>
-      <HomeCategory></HomeCategory>
+      <div data-aos="flip-left">
+        <Carousel></Carousel>
+      </div>
+      <div data-aos="flip-right">
+        <ProductView></ProductView>
+      </div>
+      <div data-aos="flip-down">
+        <HomeCategory></HomeCategory>
+      </div>
+      <div >
         <HeaderSection></HeaderSection>
+      </div>
+      <div>
         <Gallery></Gallery>
+      </div>
     </div>
   );
 };
