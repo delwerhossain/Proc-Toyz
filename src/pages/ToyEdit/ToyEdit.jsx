@@ -47,15 +47,15 @@ const ToyEdit = () => {
     const descriptionValue = form.description.value;
 
     const toys = {
-       name : nameValue,
-       pictureURL : pictureURLValue,
-       sellerName : sellerNameValue,
-       sellerEmail : sellerEmailValue,
-       subCategory : subCategoryValue,
-       price : priceValue,
-       rating : ratingValue,
-       availableQuantity : availableQuantityValue,
-       description : descriptionValue,
+      name: nameValue,
+      pictureURL: pictureURLValue,
+      sellerName: sellerNameValue,
+      sellerEmail: sellerEmailValue,
+      subCategory: subCategoryValue,
+      price: priceValue,
+      rating: ratingValue,
+      availableQuantity: availableQuantityValue,
+      description: descriptionValue,
     };
     console.log(toys);
     // sent data to backend
@@ -96,7 +96,7 @@ const ToyEdit = () => {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toysedit/${_id}`, {
+        fetch(`https://server-toy-marketplace.vercel.app/toysedit/${_id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
