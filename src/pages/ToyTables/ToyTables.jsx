@@ -24,6 +24,36 @@ const ToyTables = () => {
       });
   };
 
+  ////////// sort ////////
+
+   useEffect(() => {
+     fetchToys();
+   }, []);
+
+   const fetchToys = async () => {
+     try {
+       const response = await fetch(
+         "https://server-toy-marketplace.vercel.app/toys/all"
+       ); // Modify the URL as per your backend API endpoint
+       const data = await response.json();
+       setToys(data);
+     } catch (error) {
+       console.error(error);
+     }
+   };
+
+   const sortToys = async (sortOrder) => {
+     try {
+       const response = await fetch(
+         `https://server-toy-marketplace.vercel.app/toys/all?sortOrder=${sortOrder}`
+       ); // Modify the URL as per your backend API endpoint
+       const data = await response.json();
+       setToys(data);
+     } catch (error) {
+       console.error(error);
+     }
+   };
+
   return (
     <div className="overflow-x-auto mt-10">
       <div className="form-control my-8">
@@ -52,6 +82,9 @@ const ToyTables = () => {
             </svg>
           </button>
         </div>
+
+        <button className="btn" onClick={() => sortToys("ascending")}>Sort Ascending</button>
+        <button className="btn" onClick={() => sortToys("descending")}>Sort Descending</button>
       </div>
       <table className="table table-compact w-full">
         <thead>
