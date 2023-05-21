@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Carousel = () => {
     const bannerText = (
       <div className="absolute flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#09090a] to-[rgba(21, 21, 21, 0)]">
@@ -11,12 +13,15 @@ const Carousel = () => {
             site.
           </p>
           <div className="hidden md:block">
-            <button className="btn  btn-primary mr-5 mb-2">
+            <Link to={"/all"} className="btn  btn-primary mr-5 mb-2">
               All Toys Zone
-            </button>
-            <button className="btn btn-outline border-white text-white font-bold">
-              My Toys Zone
-            </button>
+            </Link>
+            <Link
+              to={"/categoryall/:all"}
+              className="btn btn-outline border-white text-white font-bold"
+            >
+              All Categories
+            </Link>
           </div>
         </div>
       </div>

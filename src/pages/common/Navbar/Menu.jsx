@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { NavContext } from '../../../Layout/Layouts';
@@ -192,6 +192,7 @@ const Navbar = () => {
         <div className="tooltip tooltip-bottom " data-tip="log In">
           {!user && (
             <Link className="btn btn-primary p-2" to={"/login"}>
+              <span className="mr-1 font-light text-sm">LogIn</span>
               <FiLogIn title="logOut"></FiLogIn>
             </Link>
           )}
