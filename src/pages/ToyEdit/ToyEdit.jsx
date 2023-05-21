@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const ToyEdit = () => {
   const { user } = useContext(AuthContext);
+  // navigation
+  const navigate = useNavigate()
   // single toys fetch data
   const fetchData = useLoaderData();
 
@@ -115,6 +117,8 @@ const ToyEdit = () => {
                 icon: "success",
                 confirmButtonText: "Cool",
               });
+              navigate("/mytoys");
+
             }
           })
           .catch((err) => {

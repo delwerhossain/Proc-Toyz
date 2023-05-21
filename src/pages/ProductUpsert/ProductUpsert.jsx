@@ -7,14 +7,14 @@ const ProductUpsert = () => {
 
   //state
 
-    const [value, setValue] = useState(0);
-    //rating
-     const handleInputChange = (event) => {
-       const rating = event.target.value;
-       if (rating >= 0 && rating <= 5) {
-         setValue(rating);
-       }
-     };
+  const [value, setValue] = useState(0);
+  //rating
+  const handleInputChange = (event) => {
+    const rating = event.target.value;
+    if (rating >= 0 && rating <= 5) {
+      setValue(rating);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,7 +51,6 @@ const ProductUpsert = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "success",
@@ -72,7 +71,7 @@ const ProductUpsert = () => {
       <h1 className="mb-12  text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl  text-center lg:text-6xl ">
         Toy Add{" "}
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form id="myform" onSubmit={handleSubmit}>
         {/* email */}
         <div className="relative z-0 w-full mb-6 group">
           <input
