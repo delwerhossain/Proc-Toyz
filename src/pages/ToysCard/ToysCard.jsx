@@ -85,7 +85,7 @@ const ToysCard = ({ product, handleDeleteFilter }) => {
               details{" "}
             </Link>
             <Link to={`/edit/${_id}`} className="btn btn-secondary mr-4">
-              Edit{" "}
+              Update{" "}
             </Link>
             <button onClick={() => handleDelete(_id)} className="btn btn-error">
               Delete

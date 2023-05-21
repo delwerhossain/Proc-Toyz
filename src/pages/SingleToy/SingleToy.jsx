@@ -127,11 +127,7 @@ const SingleToy = () => {
         {/* Image gallery */}
         <div className="mx-auto mt-6 max-w-2xl sm:px-6  lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3   rounded-lg lg:block">
-            <img
-              src={pictureURL}
-              alt={name}
-              className=" object-center"
-            />
+            <img src={pictureURL} alt={name} className=" object-center" />
           </div>
         </div>
 
@@ -341,7 +337,7 @@ const SingleToy = () => {
               {user.email === sellerEmail && (
                 <div className="p-4 flex  items-center justify-end">
                   <Link to={`/edit/${_id}`} className="btn btn-secondary mr-4">
-                    Edit{" "}
+                    Update{" "}
                   </Link>
                   <Link to={`/toy/${_id}`} className="btn btn-error">
                     Delete
