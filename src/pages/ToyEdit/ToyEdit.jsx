@@ -12,6 +12,8 @@ const ToyEdit = () => {
     _id,
     name,
     pictureURL,
+    sellerName,
+    sellerEmail,
     subCategory,
     price,
     rating,
@@ -45,15 +47,15 @@ const ToyEdit = () => {
     const descriptionValue = form.description.value;
 
     const toys = {
-      nameValue,
-      pictureURLValue,
-      sellerNameValue,
-      sellerEmailValue,
-      subCategoryValue,
-      priceValue,
-      ratingValue,
-      availableQuantityValue,
-      descriptionValue,
+       name : nameValue,
+       pictureURL : pictureURLValue,
+       sellerName : sellerNameValue,
+       sellerEmail : sellerEmailValue,
+       subCategory : subCategoryValue,
+       price : priceValue,
+       rating : ratingValue,
+       availableQuantity : availableQuantityValue,
+       description : descriptionValue,
     };
     console.log(toys);
     // sent data to backend
@@ -95,7 +97,7 @@ const ToyEdit = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/toysedit/${_id}`, {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
