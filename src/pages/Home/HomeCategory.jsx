@@ -57,17 +57,17 @@ const HomeCategory = () => {
       <Tabs>
         <TabList>
           <div className="grid grid-cols-4 text-center lg:text-3xl text-xl justify-center mb-6">
-            <Tab>
-              <h1 className=" ">Heroes Toys</h1>
+            <Tab className="cursor-pointer hover:text-blue-500">
+              <h1 className="">Heroes Toys</h1>
             </Tab>
-            <Tab>
+            <Tab className="cursor-pointer hover:text-blue-500">
               <h1 className="">Art toys</h1>
             </Tab>
-            <Tab>
-              <h1 className=" ">Essentials</h1>
+            <Tab className="cursor-pointer hover:text-blue-500">
+              <h1 className="">Essentials</h1>
             </Tab>
-            <Tab>
-              <h1 className=" ">Art & Books</h1>
+            <Tab className="cursor-pointer hover:text-blue-500">
+              <h1 className="">Art &amp; Books</h1>
             </Tab>
           </div>
         </TabList>
