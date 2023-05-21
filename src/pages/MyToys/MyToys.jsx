@@ -34,14 +34,18 @@ const MyToys = () => {
   ) : (
     <div>
       <body className="antialiased bg-gray-200 text-gray-900 font-sans p-6">
-        <h2 className="text-4xl font-bold text-center my-6 text-primary ">
-          My Toyz
-        </h2>
+        <h1 className="mb-12  text-4xl font-extrabold leading-none tracking-tight text-gray-900  text-center md:text-5xl lg:text-6xl ">
+          My Toy{" "}
+        </h1>
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
             {cateID &&
               myToysFilter.map((product) => (
-                <ToysCard key={product._id} product={product} handleDeleteFilter={handleDeleteFilter}></ToysCard>
+                <ToysCard
+                  key={product._id}
+                  product={product}
+                  handleDeleteFilter={handleDeleteFilter}
+                ></ToysCard>
               ))}
           </div>
         </div>

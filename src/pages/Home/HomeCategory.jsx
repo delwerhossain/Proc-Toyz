@@ -43,7 +43,7 @@ const HomeCategory = () => {
     </div>
   ) : (
     <div className="my-16 lg:w-11/12 mx-auto">
-      <h1 className="md:text-6xl text-4xl text-yellow-900 text-center my-8 font-bold underline">
+      <h1 className="md:text-6xl text-4xl text-yellow-900 text-center my-8 font-bold underline ">
         Our Category
       </h1>
 

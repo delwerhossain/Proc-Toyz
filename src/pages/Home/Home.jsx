@@ -4,6 +4,7 @@ import HomeCategory from "./HomeCategory";
 import ProductView from "./ProductView";
 import HeaderSection from "./HeaderSection";
 import Loading from "../../Components/Loading/Loading";
+import Gallery from "./Gallery";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,8 @@ const Home = () => {
       <Carousel></Carousel>
       <ProductView></ProductView>
       <HomeCategory></HomeCategory>
-      <HeaderSection></HeaderSection>
+        <HeaderSection></HeaderSection>
+        <Gallery></Gallery>
     </div>
   );
 };

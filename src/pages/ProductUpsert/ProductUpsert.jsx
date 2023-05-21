@@ -69,6 +69,9 @@ const ProductUpsert = () => {
   };
   return (
     <div className="md:w-6/12 w-10/12 mx-auto my-16">
+      <h1 className="mb-12  text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl  text-center lg:text-6xl ">
+        Toy Add{" "}
+      </h1>
       <form onSubmit={handleSubmit}>
         {/* email */}
         <div className="relative z-0 w-full mb-6 group">
