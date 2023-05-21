@@ -12,7 +12,7 @@ const ToyTables = () => {
     fetch("https://server-toy-marketplace.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
-        setToys(data);
+        setToys(data.slice(0,20));
       });
   }, []);
 
