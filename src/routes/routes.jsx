@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyToys from "../pages/MyToys/MyToys";
 import SingleToy from "../pages/SingleToy/SingleToy";
 import ProductUpsert from "../pages/ProductUpsert/ProductUpsert";
+import ToyEdit from "../pages/ToyEdit/ToyEdit";
 
 export const router = createBrowserRouter([
   {
@@ -61,9 +62,11 @@ export const router = createBrowserRouter([
         path: "/edit/:id",
         element: (
           <PrivateRoute>
-            <ProductUpsert />
+            <ToyEdit />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`https://server-toy-marketplace.vercel.app/toy/${params.id}`),
       },
       {
         path: "/add",
