@@ -37,10 +37,10 @@ const Home = () => {
       <div data-aos="flip-down">
         <HomeCategory></HomeCategory>
       </div>
-      <div >
+      <div data-aos="zoom-in">
         <HeaderSection></HeaderSection>
       </div>
-      <div>
+      <div data-aos="zoom-in-up">
         <Gallery></Gallery>
       </div>
     </div>
