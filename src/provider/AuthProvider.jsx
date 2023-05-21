@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -80,6 +81,14 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //use name for authentication registration
+  const updateUser = (name, UserPicUrl) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: UserPicUrl,
+    });
+  };
+
   //////////////////////////////////
   // all auth sent in authContext//
   const authInfo = {
@@ -90,6 +99,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signInWithGit,
     signOutLog,
+    updateUser,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

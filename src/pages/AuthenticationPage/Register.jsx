@@ -1,74 +1,90 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../Components/Loading/Loading";
+import { getAuth, updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, signInWithGoogle, signInWithGit } =
-    useContext(AuthContext);
+   const { createUser, signInPopGit, signInPopGoogle, updateUser } =
+     useContext(AuthContext);
+   // state
+   const [error, setError] = useState("");
+   const [success, setSuccess] = useState("");
+   const [user, setUser] = useState("");
+   const [show, setShow] = useState(false);
+   const [accept, setAccept] = useState(false);
 
-  //state
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+   //navigation
+   const navigate = useNavigate();
 
-  // location
-  // location
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  const navigate = useNavigate();
-  //authentication
-  const handleSignUp = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, email, password);
-
-    createUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        setSuccess("login success");
-        setError("");
-
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        setError(error.message);
-        setSuccess("");
-      });
-  };
-  const handleGooglePopup = () => {
-    return signInWithGoogle()
-      .then((result) => {
-        setError("");
-        setSuccess("login success - Google");
-
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorMessage = error.message;
-
-        setError(errorMessage);
-        setSuccess("");
-      });
-  };
-  const handleGitPopup = () => {
-    return signInWithGit()
-      .then((result) => {
-        setError("");
-        setSuccess("login success - Google");
-
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorMessage = error.message;
-        setError(errorMessage);
-        setSuccess("");
-      });
-  };
+   const handleSignOut = () => {
+     signOutUser()
+       .then(() => {})
+       .catch((error) => {
+         console.error(error);
+       });
+   };
+   const handleRegister = (e) => {
+     e.preventDefault();
+     const name = e.target.name.value;
+     const pic = e.target.pic.value;
+     const email = e.target.email.value;
+     const password = e.target.password.value;
+     const confirm = e.target.confirm.value;
+     if (password !== confirm) {
+       setError("confirm password not correct");
+       return;
+     }
+     createUser(email, password)
+       .then((result) => {
+         updateProfile(result.user, {
+           displayName: name,
+           photoURL: pic,
+         })
+           .then(() => {})
+           .catch((error) => {
+             // An error occurred
+             // ...
+           });
+         setUser(result.user);
+         setError("");
+         toast.success("successfully registered");
+         setSuccess("successfully registered---");
+         window.location.reload(true);
+       })
+       .catch((error) => {
+         console.error(error);
+         setError(error.code);
+         toast.error(error.code);
+       });
+   };
+   const handleGooglePopup = () => {
+     signInPopGoogle()
+       .then((result) => {
+         setUser(result.user);
+         setError("");
+         setSuccess("successfully registered with Google");
+       })
+       .catch((error) => {
+         console.error(error);
+         setError(error.code);
+         setSuccess("");
+       });
+   };
+   const handleGitPopup = () => {
+     signInPopGit()
+       .then((result) => {
+         setUser(result.user);
+         setError("");
+         setSuccess("successfully registered with Git ");
+       })
+       .catch((error) => {
+         console.error(error);
+         setError(error.code);
+         setSuccess("");
+       });
+   };
 
   const [loading, setLoading] = useState(true);
 
@@ -97,17 +113,29 @@ const Register = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body text-primary">
             <h1 className="text-3xl text-center font-bold">Sign Up</h1>
-            <form onSubmit={handleSignUp}>
+            <form id="form" onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
-                  required
-                  type="text"
-                  name="name"
+                  type="name"
                   placeholder="name"
-                  className="input input-bordered"
+                  name="name"
+                  className="input-bordered input"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo</span>
+                </label>
+                <input
+                  type="name"
+                  placeholder="Photo Url"
+                  name="pic"
+                  className="input-bordered input"
+                  required
                 />
               </div>
               <div className="form-control">
@@ -115,43 +143,82 @@ const Register = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  required
                   type="email"
-                  name="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  name="email"
+                  className="input-bordered input"
+                  required
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Confirm Password</span>
+                  <span className="label-text">Password</span>
                 </label>
                 <input
-                  required
-                  type="password"
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input-bordered input"
+                  required
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <span className="label-text">Confirm password</span>
+                </label>
+                <input
+                  type={show ? "text" : "password"}
+                  name="confirm"
+                  placeholder="confirm password"
+                  className="input-bordered input"
+                  required
+                />
+                <p onClick={() => setShow(!show)} className=" mt-2 underline">
+                  {" "}
+                  {show ? <a> hide password</a> : <a>show password</a>}{" "}
+                </p>
+                <label className="label">
+                  <a href="#" className="link-hover label-text-alt link">
                     Forgot password?
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
-                <input
-                  className="btn btn-primary"
-                  type="submit"
-                  value="Sign Up"
-                />
+              {/* check box */}
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">
+                    Accept terms and conditions
+                  </span>
+                  <input
+                    type="checkbox"
+                    onClick={() => setAccept(!accept)}
+                    className="checkbox checkbox-primary"
+                  />
+                </label>
               </div>
-              <div className="divider">OR</div>
+              <div className="form-control mt-6">
+                <button disabled={!accept} className="btn btn-primary">
+                  Login
+                </button>
+              </div>
+              <p
+                className={`text-xl ${
+                  error === "" ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {" "}
+                {error === "" ? success : error}
+              </p>
+              {/* <p className="font-semibold text-red-500">{error}</p>
+            <p className="font-semibold text-green-500">{success}</p> */}
+              <label className="label">
+                <Link to={"/login"} className=" link-hover label-text-alt link">
+                  Already have an account please Login
+                </Link>
+              </label>
               <div className="mt-4 flex gap-x-2">
                 <a
                   onClick={handleGooglePopup}
                   type="button"
-                  className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2  hover:bg-orange-300 focus:ring-2 focus:ring-violet-600 focus:ring-offset-1"
+                  className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2   hover:bg-[#580cfc] hover:text-white  focus:ring-2 focus:ring-violet-600 focus:ring-offset-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +230,7 @@ const Register = () => {
                 </a>
                 <a
                   onClick={handleGitPopup}
-                  className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2 hover:bg-orange-300 focus:ring-2 focus:ring-violet-600 focus:ring-offset-1"
+                  className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2  hover:bg-[#580cfc] hover:text-white  focus:ring-2 focus:ring-violet-600 focus:ring-offset-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +240,7 @@ const Register = () => {
                     <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
                   </svg>
                 </a>
-                <a className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2 hover:bg-orange-300 focus:ring-2 focus:ring-violet-600 focus:ring-offset-1">
+                <a className="flex w-full items-center justify-center rounded-md border border-gray-600 p-2  hover:bg-[#580cfc] hover:text-white  focus:ring-2 focus:ring-violet-600 focus:ring-offset-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
@@ -184,8 +251,6 @@ const Register = () => {
                 </a>
               </div>
             </form>
-            <p className="text-2xl text-red-600">{error}</p>
-            <p className="text-2xl text-teal-600">{success}</p>
             <p className="my-4 text-center">
               <span className="font-semibold ">Already Have an Account?</span>
               <Link className="text-orange-600 font-bold" to="/login">
@@ -198,6 +263,18 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };
