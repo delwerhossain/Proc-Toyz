@@ -31,7 +31,7 @@ const ToyTables = () => {
             placeholder="Search…"
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={handleSearch}
-            className="input input-bordered"
+            className="input text-primary font-semibold input-bordered"
           />
           <button onClick={handleSearch} className="btn btn-square">
             <svg
