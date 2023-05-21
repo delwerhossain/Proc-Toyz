@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import useTitle from "../../hook/useTitle";
 
 const ToyEdit = () => {
+  useTitle("Toys Update");
   const { user } = useContext(AuthContext);
   // navigation
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // single toys fetch data
   const fetchData = useLoaderData();
 
@@ -116,7 +118,6 @@ const ToyEdit = () => {
                 confirmButtonText: "Cool",
               });
               navigate("/mytoys");
-
             }
           })
           .catch((err) => {

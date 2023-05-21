@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import Loading from "../../Components/Loading/Loading";
+import useTitle from "../../hook/useTitle";
 
 const Blogs = () => {
+    useTitle("Blogs");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -1,9 +1,11 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import ToysCard from "../ToysCard/ToysCard";
 import { useEffect, useState } from "react";
 import Loading from "../../Components/Loading/Loading";
+import useTitle from "../../hook/useTitle";
 
 const Category = () => {
+    useTitle("category");
   // const cateID = useLoaderData();
   const [cateID, setCateID] = useState([]);
   const idParams = useParams();

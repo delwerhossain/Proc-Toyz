@@ -4,8 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Loading from "../../Components/Loading/Loading";
+import useTitle from "../../hook/useTitle";
 
 const HomeCategory = () => {
+    useTitle("category");
   // state
   const [cateData, setCateData] = useState([]);
   // params

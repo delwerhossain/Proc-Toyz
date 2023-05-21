@@ -26,6 +26,7 @@ import Rating from "react-rating";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../Components/Loading/Loading";
+import useTitle from "../../hook/useTitle";
 
 const product = {
   // data fetch
@@ -88,7 +89,7 @@ function classNames(...classes) {
 }
 
 const SingleToy = () => {
-  //
+    useTitle("TOY");
   const { user } = useContext(AuthContext);
   const toy = useLoaderData();
   const {

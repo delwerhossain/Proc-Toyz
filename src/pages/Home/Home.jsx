@@ -7,7 +7,9 @@ import Loading from "../../Components/Loading/Loading";
 import Gallery from "./Gallery";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
+import useTitle from "../../hook/useTitle";
 const Home = () => {
+  useTitle('home')
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     AOS.init();

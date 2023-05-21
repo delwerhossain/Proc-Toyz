@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import ToyRow from "./ToyRow";
+import useTitle from "../../hook/useTitle";
 
 
 const ToyTables = () => {
+    useTitle("all Toys");
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState("");
 

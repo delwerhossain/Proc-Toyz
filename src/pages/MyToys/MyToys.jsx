@@ -3,8 +3,10 @@ import ToysCard from "../ToysCard/ToysCard";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../../Components/Loading/Loading";
+import useTitle from "../../hook/useTitle";
 
 const MyToys = () => {
+    useTitle("mytoys");
   const { user } = useContext(AuthContext);
   const cateID = useLoaderData();
 
