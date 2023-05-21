@@ -14,8 +14,6 @@ const ToyEdit = () => {
     _id,
     name,
     pictureURL,
-    sellerName,
-    sellerEmail,
     subCategory,
     price,
     rating,
