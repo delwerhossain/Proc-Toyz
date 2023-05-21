@@ -59,11 +59,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/edit/:id",
-        element: <ProductUpsert />,
+        element: (
+          <PrivateRoute>
+            <ProductUpsert />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add",
-        element: <ProductUpsert />,
+        element: (
+          <PrivateRoute>
+            <ProductUpsert />
+          </PrivateRoute>
+        ),
       },
     ],
   },

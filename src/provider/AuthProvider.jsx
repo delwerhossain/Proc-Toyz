@@ -40,24 +40,24 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      if (currentUser) {
-        const loggerUser = { email: currentUser.email };
-        const url = `https://server-car-doctor-exp-delwerhossain.vercel.app/jwt`;
-        fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loggerUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            localStorage.setItem("jwt", data.token);
-          });
-      } else {
-        localStorage.removeItem("jwt");
-      }
+      // if (currentUser) {
+      //   const loggerUser = { email: currentUser.email };
+      //   const url = `https://server-car-doctor-exp-delwerhossain.vercel.app/jwt`;
+      //   fetch(url, {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(loggerUser),
+      //   })
+      //     .then((res) => res.json())
+      //     .then((data) => {
+      //       console.log(data);
+      //       localStorage.setItem("jwt", data.token);
+      //     });
+      // } else {
+      //   localStorage.removeItem("jwt");
+      // }
     });
     return () => {
       return unsubscribe();
