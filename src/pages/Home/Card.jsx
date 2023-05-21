@@ -1,7 +1,8 @@
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const Card = ({ card }) => {
-  const { _id, name, price, pictureURL, description } = card;
+  const { _id, name, price, pictureURL, rating, description } = card;
   return (
     <div className=" my-4">
       <div className="card md:w-[400px] w-[340px] mx-auto  md:h-[350px] bg-base-100 shadow-xl image-full">
@@ -22,6 +23,10 @@ const Card = ({ card }) => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="p-4 flex items-center text-sm text-gray-600">
+        <Rating initialRating={rating} readonly />
+        <span className="ml-2">34 people</span>
       </div>
     </div>
   );
