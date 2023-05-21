@@ -10,7 +10,7 @@
 
 ## Live Link
 
-# Hosted in Firebase -> https://client-toy-marketplace.web.app/p
+# Hosted in Firebase -> https://client-toy-marketplace.web.app/
 
 # install-package
 
