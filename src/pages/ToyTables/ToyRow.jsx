@@ -13,7 +13,7 @@ const ToyRow = ({ toy, index }) => {
       <td className="font-medium">{price}</td>
       <td className="font-medium">{availableQuantity}</td>
       <td>
-        <Link to={`/viewDetails/${_id}`}>
+        <Link to={`/toy/${_id}`}>
           <button className="btn btn-outline btn-primary">View Details</button>
         </Link>
       </td>

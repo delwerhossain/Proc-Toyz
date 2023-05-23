@@ -83,8 +83,8 @@ const ToyTables = () => {
           </button>
         </div>
 
-        <button className="btn" onClick={() => sortToys("ascending")}>Sort Ascending</button>
-        <button className="btn" onClick={() => sortToys("descending")}>Sort Descending</button>
+        <button className="btn hidden" onClick={() => sortToys("ascending")}>Sort Ascending</button>
+        <button className="btn hidden" onClick={() => sortToys("descending")}>Sort Descending</button>
       </div>
       <table className="table table-compact w-full">
         <thead>
