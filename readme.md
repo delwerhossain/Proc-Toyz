@@ -10,11 +10,11 @@
 
 ## Live Link
 
-# Hosted in Firebase -> https://client-toy-marketplace.web.app/
+Hosted in Firebase -> https://client-toy-marketplace.web.app/
 
 ## server Code link git 
 
-# Git server -> https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-delwerhossain
+Git server -> https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-delwerhossain
 
 # install-package
 
