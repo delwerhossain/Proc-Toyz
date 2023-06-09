@@ -1,6 +1,4 @@
-# TOY Marketplace
-
-# Treact Food Chef <a name="TOP"></a>
+# TOY Marketplace <a name="TOP"></a>
 
 > React
 >
