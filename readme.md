@@ -5,173 +5,74 @@
 > > project
 
 ---
+Heroes Toys is an online toy shop where users can explore and purchase a wide range of toys in different categories. The website offers a user-friendly interface with various features to enhance the toy shopping experience.
 
-## Live Link
 
-Hosted in Firebase -> https://client-toy-marketplace.web.app/
+## Live Demo
 
-## server Code link git 
+### <a href="https://client-toy-marketplace.web.app/">Live Link</a>
 
-Git server -> https://github.com/programming-hero-web-course-4/b7a11-toy-marketplace-server-side-delwerhossain
 
-# install-package
+## Features
 
-    Markup :  # install-package #
+- **Registration & Login System**
+  - Users can create an account by providing their name, email, password, and optional details.
+  - Passwords are securely stored and can be hidden or revealed with a click.
+  - Relevant error messages are displayed on the Registration and Login pages.
 
-- Tailwindcss
-- Daisy UI
-- React router
-- Recharts
-- Hero Icon
-- firebase
-- more packages etc.
+- **Homepage**
+  - The homepage features a banner section with captivating images and messages.
+  - A gallery section showcases relevant toy pictures to attract users.
+  - The "Shop by Category" section utilizes a tab system, allowing users to explore different toy categories and sub-categories.
 
-## Dynamically menu
+- **Blogs Page**
+  - Users can read and gain knowledge from informative blogs answering questions about access tokens, refresh tokens, SQL and NoSQL databases, Express.js, Nest.js, and MongoDB aggregate.
 
-    Markup :  # Menu #
+- **All Toys Page**
+  - The All Toys page displays toys added by all users in a tabular form.
+  - Each toy entry includes information such as the seller, toy name, sub-category, price, available quantity, and a "View Details" button.
+  - A search system allows users to search for toys based on the toy name.
 
-    use of
+- **Single Toy Details**
+  - Clicking on the "View Details" button redirects users to the Single Toy Details page, which provides detailed information about a specific toy, including the picture, toy name, seller name, seller email, price, rating, available quantity, and description.
 
-    array of obj to map
+- **Add A Toy Page**
+  - Registered users can access the Add A Toy page to add new toys to the website.
+  - The form on this page includes fields for the toy picture URL, name, seller name, seller email, sub-category, price, rating, available quantity, and a detailed description.
 
-```javascript
-let menuList = [
-  { title: "Home", link: "/", id: 1 },
-  { title: "All Toys", link: "/all", id: 2 },
-  { title: "Blogs", link: "/blogs", id: 3 },
-];
-export const NavContext = createContext({
-  menuList: [],
-});
-```
+- **My Toys Page**
+  - Logged-in users can view the My Toys page, which displays all the toys they have added.
+  - The table view includes the toy name, price, available quantity, and options to update or delete the toy entry.
 
-    See All :  first slice data after click
+- **404 Page**
+  - A custom 404 page is available with an interesting image or gif and a "Back to Home" button.
 
-```javascript
-const [jobsData, setJobsData] = useState([]);
-const cardData = useLoaderData();
-useEffect(() => {
-  if (cardData) {
-    setJobsData(cardData.slice(0, 4));
-  }
-}, []);
-const handleSetData = (id) => {
-  addToDb(id);
-};
+- **Responsive Design**
+  - The website is designed to be responsive and adaptable to different screen sizes, including mobile and desktop devices.
+  - The home page is enhanced with the AOS package for smooth animations.
 
-const allData = (check) => {
-  if (check) {
-    setJobsData(cardData);
-  }
-};
-allData(false);
-```
+## Technologies Used
 
-# Route declaration
+- Front-end: React, HTML, CSS, AOS package
+- Back-end: Node.js, Express.js
+- Database: MongoDB
+- Authentication: Firebase authentication
+- Deployment: Firebase hosting
 
-    Route :  first slice data after click
 
-```javascript
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layouts />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/blogs",
-        element: <Blogs />,
-      },
-      {
-        path: "/mytoys",
-        element: (
-          <PrivateRoute>
-            <MyToys />
-          </PrivateRoute>
-        ),
-        loader: () => fetch(`https://server-toy-marketplace.vercel.app/toys`),
-      },
-      {
-        path: "/toy/:id",
-        element: (
-          <PrivateRoute>
-            <SingleToy />
-          </PrivateRoute>
-        ),
-        loader: ({ params }) =>
-          fetch(`https://server-toy-marketplace.vercel.app/toy/${params.id}`),
-      },
-      {
-        path: "/categoryall/:all",
-        element: <HomeCategory />,
-      },
-      {
-        path: "/all",
-        element: <ToyTables />,
-      },
-      {
-        path: "/category/:id",
-        element: <Category />,
-      },
-      {
-        path: "/edit/:id",
-        element: (
-          <PrivateRoute>
-            <ToyEdit />
-          </PrivateRoute>
-        ),
-        loader: ({ params }) =>
-          fetch(`https://server-toy-marketplace.vercel.app/toy/${params.id}`),
-      },
-      {
-        path: "/add",
-        element: (
-          <PrivateRoute>
-            <ProductUpsert />
-          </PrivateRoute>
-        ),
-      },
-    ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-]);
+## Getting Started
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </AuthProvider>
-);
-```
+1. Clone the repository.
+2. Install the necessary dependencies using [package manager].
+3. Set up the environment variables for both the client and server.
+4. Start the development server for both the client and server.
+5. Access the website by opening the provided URL in your browser.
 
-# Private Route declaration
+## Environment Variables
 
-```javascript
-const PrivateRoute = ({ children }) => {
-  const location = useLocation();
-  const { user, loading } = useContext(AuthContext);
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center ">
-        <progress className="progress w-11/12"></progress>
-      </div>
-    );
-  }
-  if (user) {
-    return children;
-  }
-  return <Navigate to={"/login"} state={{ from: location }} replace></Navigate>;
-};
-```
+Both the client-side and server-side of the application utilize environment variables to store sensitive information and configuration details.
+
+
+---
+
+Thank you for considering Heroes Toys. If you have any further questions or need assistance, feel free to reach out.
